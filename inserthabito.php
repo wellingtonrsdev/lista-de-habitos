@@ -20,13 +20,13 @@ $nome = $_GET["nome"];
 
 //insere o habito na tabela do banco de dados
 
-$sql = "INSERT INTO habito (nome, status) VALUES (´".$nome."´, ´A´)";
+$sql = "INSERT INTO habito (nome, status) VALUES (´" . $nome . "´, ´A´)";
 
 //verifica se ocorreu tudo bem, caso houve erro fecha a conexão e aborta o programa
 
-if(!($conexao->query($sql) === TRUE)) {
+if (!($conexao->query($sql) === TRUE)) {
   $conexao->close();
-  die("ERRO; ". $sql . "<br>". $conexao->error);
+  die("ERRO; " . $sql . "<br>" . $conexao->error);
 }
 
 //fecha a conexão BD
@@ -34,4 +34,3 @@ $conexao->close();
 
 //Envia para a página index onde aparece a lista de hábitos já com o novo hábito cadastrado
 header("Location: index.php");
-?>
