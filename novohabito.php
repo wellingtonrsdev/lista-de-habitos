@@ -13,8 +13,8 @@
     <h1>Novo Hábito</h1>
 
     <!--Formualário para cadastro de pessoas-->
-    <form id="formulario" action="inserthabito.php" method="post">
-      <p><label> Nome: <input type="text" id="nome" name="nome" autofocus /></label></p>
+    <form id="formulario" action="inserthabito.php">
+      <p><label> Nome: <input type="text" id="nome" name="nome" autofocus ></label></p>
       <p><input type="submit" value="Criar"></p>
     </form>
   </div>

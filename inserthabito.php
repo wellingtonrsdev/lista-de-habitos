@@ -16,7 +16,7 @@ if ($conexao->connect_error) {
 
 //Busca nome que foi recebido via get através do formulário de cadastro
 
-$nome = $_POST["nome"];
+$nome = $_GET["nome"];
 
 //insere o habito na tabela do banco de dados
 

@@ -14,9 +14,12 @@ if ($conn->connect_error) {
   die("Falha na conexão: " . $conn->connect_error);
 }
 
-//Obtém o id do registro que foi recebido via GET
-
-$id = $_GET["id"];
+// Obtém o id do registro que foi recebido via GET
+if (isset($_GET["id"]) && !empty($_GET["id"])) {
+  $id = $_GET["id"];
+}
+var_dump($id);
+$sql = "DELETE FROM habito WHERE id=".$id;
 
 //Executa o comando DELETE da variável $sql
 if ($conn->query($sql) === TRUE) {
