@@ -18,16 +18,14 @@ if ($conn->connect_error) {
 
 $id = $_GET["id"];
 
-$sql = "DELETE FROM habito WHERE id=" . $id;
-
-//Executa o comando delete da variável $sql
-
-if (!($conn->query($sql) === TRUE)) {
+//Executa o comando DELETE da variável $sql
+if ($conn->query($sql) === TRUE) {
+  //Fecha a conexão
+  $conn->close();
+  //Redireciona para a página inicial
+  header("Location: index.php");
+  exit(); // Adicionado para garantir que o script pare de ser executado após o redirecionamento
+} else {
+  //Caso haja erro ao executar o comando SQL, exibe a mensagem de erro
   die("Erro ao excluir: " . $conn->error);
 }
-
-//Fecha a conexão
-$conn->close();
-
-//Redireciona para a página inicial
-header("Location: index.php");

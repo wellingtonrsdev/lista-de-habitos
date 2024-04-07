@@ -3,8 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <title>Lista de hábitos</title>
 </head>
 
@@ -31,7 +30,8 @@
 
     //Executa a query da variável $sql
 
-    $sql = "SELECT id " . "  , nome" . " FROM habito " . "WHERE status = 'A'";
+    $sql = "SELECT id, nome FROM habito WHERE status = 'A'";
+
     $resultado = $conexao->query($sql);
 
     //Verifica se a query retornou os registros
@@ -42,18 +42,18 @@
       <br />
       <table class="center">
         <tbody>
-          <?
+          <?php
           //Looping pelos registros retornados
           while ($registro = $resultado->fetch_assoc()) {
           ?>
 
             <tr>
-              <td><? echo $registro["nome"]; ?></td>
-              <td><a href="vencerhabito.php?id=<? echo $registro["id"]; ?>">Vencer</a></td>
-              <td><a href="desistirhabito.php?id=<? echo $registro["id"]; ?>">Desistir</a></td>
+              <td><?php echo $registro["nome"]; ?></td>
+              <td><a href="vencerhabito.php?id=<?php echo $registro["id"]; ?>">Vencer</a></td>
+              <td><a href="desistirhabito.php?id=<?php echo $registro["id"]; ?>">Desistir</a></td>
             </tr>
 
-          <?
+          <?php
           }
           // fim do loop
           ?>
@@ -67,9 +67,9 @@
     ?>
 
       <p>Você não possui hábitos cadastrados!</p>
-      <p>Começe já a mudar a sua vida !</p>
+      <p>Comece já a mudar a sua vida !</p>
 
-    <?
+    <?php
     }
     //fim do if
 
